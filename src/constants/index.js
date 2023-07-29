@@ -141,15 +141,15 @@ const projects = [
       "COMPLETE Fullstack Chatting app that uses sockets.io for relatime messaging ,calling, video calling and notifications,javascript,mysql and it has great ui like whatsapp you can send audio message, images, emojis too , can search for contacts as well as any message and also can update your profile anytime.",
     tags: [
       {
-        name: "MongoDB",
+        name: "MySQL",
         color: "blue-text-gradient",
       },
       {
-        name: "Vite",
+        name: "Next.js",
         color: "green-text-gradient",
       },
       {
-        name: "React",
+        name: "Node.js",
         color: "pink-text-gradient",
       },
     ],
