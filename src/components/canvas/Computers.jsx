@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import { Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
 
@@ -21,9 +21,9 @@ const Computers = ({ isMobile }) => {
       <pointLight intensity={1} />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.95 : 1.48}
-        position={isMobile ? [0, -2.2, 0] : [0, -3.5, 0]}
-        rotation={[0, 2, 0]}
+        scale={isMobile ? 0.8 : 1.2}
+        position={isMobile ? [0, -3.6, 0] : [0, -4.0, 0]}
+        rotation={[0, 1.7, 0]}
       />
     </mesh>
   );
@@ -58,15 +58,18 @@ const ComputersCanvas = () => {
       frameloop='demand'
       shadows
       dpr={[1, 2]}
-      camera={{ position: [20, 3, 5], fov: 25 }}
+      camera={{ position: [20, 3, 5], fov: 25, up: [0, 1, 0], near: 0.1, far: 100 }}
       gl={{ preserveDrawingBuffer: true }}
+      // Disable the orbit controls and user interactions
+      // Remove this if you don't want to disable user interactions.
+      onCreated={({ gl }) => gl.domElement.setAttribute("tabindex", -1)}
     >
       <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls
+        {/* <OrbitControls
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
-        />
+        /> */}
         <Computers isMobile={isMobile} />
       </Suspense>
 

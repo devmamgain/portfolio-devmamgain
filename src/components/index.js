@@ -14,7 +14,7 @@ export {
   Works,
   Contact,
   CanvasLoader,
-  EarthCanvas,
-  ComputersCanvas, 
+  EarthCanvas, 
+  ComputersCanvas,
   StarsCanvas
 };
